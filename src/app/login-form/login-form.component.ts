@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-output-on-prefix */
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -10,10 +11,10 @@ export class LoginFormComponent {
   @Output() onSubmitRegisterEvent = new EventEmitter();
 
   active = 'login';
-  firstName: string = '';
-  lastName: string = '';
-  login: string = '';
-  password: string = '';
+  firstName = '';
+  lastName = '';
+  login = '';
+  password = '';
 
   onSubmitLogin(): void {
     this.onSubmitLoginEvent.emit({
