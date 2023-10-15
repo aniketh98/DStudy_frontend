@@ -1,1 +1,1 @@
-Front-end code for directed study
+Front end code for directed study
