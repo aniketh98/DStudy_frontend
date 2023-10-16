@@ -1,27 +1,32 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+  let fixture: ComponentFixture<AppComponent>;
+  let app: AppComponent;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, HeaderComponent, ContentComponent, ButtonsComponent],
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
+  it('should have app-header and app-content components', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend app is running!');
+    const headerComponent = compiled.querySelector('app-header');
+    const contentComponent = compiled.querySelector('app-content');
+
+    expect(headerComponent).toBeTruthy();
+    expect(contentComponent).toBeTruthy();
   });
 });
